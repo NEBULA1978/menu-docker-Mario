@@ -77,3 +77,46 @@ next@next-System:~/Música/menu-docker-Mario/herramienta-expulsat$
 
 Para borrar contenedor:
 ocker rm f3739b8446fa
+
+//////////////////////////////////////////////////////////////
+
+Los volumenes son para quelos datos puedan persistir:
+
+Ejecutamos un contnedor de ubuntu,estableciendo un volumen:
+
+docker run --rm -it -v datos_volumen:/home ubuntu
+
+root@de56f6c8dc57:/# cd home/
+root@de56f6c8dc57:/home# ls
+root@de56f6c8dc57:/home# touch fichero.txt
+root@de56f6c8dc57:/home# ls
+fichero.txt
+root@de56f6c8dc57:/home# exit
+exit
+
+next@next-System:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     datos_volumen
+next@next-System:~$ 
+
+EJECUTAMSO OTRO CONTENEDOR DIFERENTE e importamos de home el archivo fichero.txt al contenedor kickthemout:
+
+ docker run --rm -it -v datos_volumen:/home kickthemout bash
+ 
+root@4f37c9b52a55:/# cd /home
+root@4f37c9b52a55:/home# ls
+fichero.txt
+root@4f37c9b52a55:/home# 
+
+next@next-System:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     datos_volumen
+next@next-System:~$ 
+
+ELIMIAR un volumen:
+
+docker volume rm datos_volumen
+
+next@next-System:~$ docker volume ls
+DRIVER    VOLUME NAME
+next@next-System:~$ 
