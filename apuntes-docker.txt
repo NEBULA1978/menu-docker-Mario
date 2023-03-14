@@ -1,0 +1,79 @@
+Creo carpeta y entro en ella:
+mkdir herramienta
+cd herramienta
+git clone https://github.com/trustedsec/social-engineer-toolkit.git
+
+Entro dentro de carpeta del git clonedescargado
+docker run --tag herramienta-social-engineer
+
+Empieza a instalar dentro del contenedor en una imagen de ubuntu:
+ herramienta-social-engineer
+
+docker images:
+
+REPOSITORY                  TAG       IMAGE ID       CREATED             SIZE
+herramienta-social-engine   latest    97b0369986f1   7 seconds ago       670MB
+image_fichero               latest    c5aa67574993   About an hour ago   122MB
+golang                      latest    c48137eaf961   6 days ago          778MB
+ubuntu                      latest    74f2314a03de   13 days ago         77.8MB
+
+docker run -it herramienta-social-engine
+
+
+Hago lo mismo anterior con otra herramienta :
+Para decirle utilice el localhost de mi ordenador:
+docker run -it --network host kickthemout
+
+next@next-System:~/Música/menu-docker-Mario/herramienta-expulsat$ docker run -it --network host kickthemout
+
+ERROR: Gateway IP could not be obtained. Please enter IP manually.
+
+kickthemout> Enter Gateway IP (e.g. 192.168.1.1): 192.168.0.1
+Scanning your netwOrk, hang on...
+ERROR: Default Gateway MAC Address could not be obtained. Please enter MAC manually.
+
+kickthemout> Enter your gateway's MAC Address (MM:MM:MM:SS:SS:SS): 
+                                                                            
+    █  █▀ ▄█ ▄█▄    █  █▀    ▄▄▄▄▀  ▄  █ ▄███▄   █▀▄▀█  ████▄   ▄      ▄▄▄▄▀
+    █▄█   ██ █▀ ▀▄  █▄█   ▀▀▀ █    █   █ █▀   ▀  █ █ █  █   █    █  ▀▀▀ █
+    █▀▄   ██ █   ▀  █▀▄       █    ██▀▀█ ██▄▄    █ ▄ █  █   █ █   █     █
+    █  █  ▐█ █▄  ▄▀ █  █     █     █   █ █▄   ▄▀ █   █  ▀████ █   █    █
+     █    ▐ ▀███▀    █     ▀         █  ▀███▀      █         █▄ ▄█   ▀
+     ▀               ▀               ▀             ▀           ▀▀▀
+    
+                   Kick Devices Off Your LAN (KickThemOut)                    
+   Made With <3 by: Nikolaos Kamarinakis (k4m4) & David Schütz (xdavidhu)   
+                               Version: 2.0 
+                                
+Using interface 'wlx005a8f316e3f' with MAC address '00:5a:8f:31:6e:3f'.
+Gateway IP: '192.168.0.1' --> 1 hosts are up.
+
+Choose an option from the menu:
+
+        [1] Kick ONE Off
+        [2] Kick SOME Off
+        [3] Kick ALL Off
+
+        [E] Exit KickThemOut
+
+kickthemout> E
+
+
+Thanks for dropping by.
+Catch ya later!
+next@next-System:~/Música/menu-docker-Mario/herramienta-expulsat$ 
+
+Puedo borrar los contenedores ejecutadas de la imagen principal, se ven con 
+
+docker ps -a
+
+CONTAINER ID   IMAGE                       COMMAND         CREATED             STATUS                         PORTS     NAMES
+01044b9a5be4   herramienta-social-engine   "./setoolkit"   About an hour ago   Exited (0) About an hour ago             busy_neumann
+41a938218593   image_fichero               "/bin/bash"     2 hours ago         Exited (0) 2 hours ago                   brave_leakey
+ae3ce1b06a2c   image_fichero               "/bin/bash"     2 hours ago         Exited (0) 2 hours ago                   busy_curie
+fa0e0bdf27fc   ubuntu                      "/bin/bash"     3 hours ago         Exited (137) 3 hours ago                 serene_mahavira
+8e2b5891d0d7   ubuntu                      "/bin/bash"     21 hours ago        Exited (137) 3 hours ago                 reverent_babbage
+next@next-System:~/Música/menu-docker-Mario/herramienta-expulsat$
+
+Para borrar contenedor:
+ocker rm f3739b8446fa
