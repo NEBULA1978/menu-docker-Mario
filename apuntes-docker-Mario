@@ -1,0 +1,37 @@
+ docker images
+ docker pull ubuntu
+ docker images
+ docker rmi 
+ docker images
+ docker -it ubuntu
+ docker -i ubuntu
+ docker run -it ubuntu
+ docker images
+ docker ps
+ docker ps -a
+ docker exec -it 8e2
+ docker exec -it 8e2b5891d0d7
+ docker exec -it 8e2b5891d0d7 bash
+ docker ps -a
+ docker exec -it 8e2b5891d0d7 bash
+ docker start 8e2b5891d0d7
+ docker exec -it 8e2b5891d0d7 bash
+ docker ps -a
+ docker stop 8e2b5891d0d7
+ docker ps -a
+ history
+
+Creamos carpeta y dentro:
+Archivo Dockerfile:
+
+FROM ubuntu
+
+EUN apt update && apt upgrade -y
+
+RUN echo "Todo configurado"
+
+
+Para ejecutar desde consola:
+docker build --tag mi_imagen .
+
+Voy minuto 16
